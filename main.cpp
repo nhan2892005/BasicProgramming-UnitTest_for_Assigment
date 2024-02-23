@@ -15,9 +15,12 @@ bool compareFiles(const string &p1, const string &p2)
 
     if (f1.tellg() != f2.tellg())
     {
-        return false; // size mismatch
+        //return false; // size mismatch
     }
-
+    std::cout << std::endl;
+    std::cout << f1.rdbuf() << std::endl;
+    std::cout << f2.rdbuf() << std::endl;
+    std::cout << "-------------------------------------- \n";
     // seek back to beginning and use std::equal to compare contents
     f1.seekg(0, ifstream::beg);
     f2.seekg(0, ifstream::beg);
