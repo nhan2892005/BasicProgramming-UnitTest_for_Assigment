@@ -163,9 +163,9 @@ int main(int argc, const char *argv[])
     for (int i = start; i <= end; ++i)
     {
         cout << i << " ";
-        string input_file = "testcase/input/input" + to_string(i) + ".txt";
-        string output_file = "testcase/output/output" + to_string(i) + ".txt";
-        string solution_file = "testcase/solution/output" + to_string(i) + ".txt";
+        string input_file = "unittest/input_test/input" + to_string(i) + ".txt";
+        string output_file = "unittest/your_result/output" + to_string(i) + ".txt";
+        string solution_file = "unittest/output_test/output" + to_string(i) + ".txt";
         sa_tc_01(input_file, output_file, i);
         if (!compareFiles(output_file, solution_file))
         {
