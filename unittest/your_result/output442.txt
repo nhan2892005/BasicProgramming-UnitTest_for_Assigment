@@ -1,1 +1,1 @@
-Result: 24
+Result: -1

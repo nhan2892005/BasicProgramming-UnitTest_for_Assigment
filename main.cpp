@@ -12,18 +12,17 @@ bool compareFiles(const string &p1, const string &p2)
     {
         return false; // file problem
     }
-
-    if (f1.tellg() != f2.tellg())
-    {
-        return false; // size mismatch
-    }
+    //if (f1.tellg() != f2.tellg())
+    //{
+        //return false; // size mismatch
+    //}
     std::cout << std::endl;
-    std::cout << f1.rdbuf() << std::endl;
-    std::cout << f2.rdbuf() << std::endl;
-    std::cout << "-------------------------------------- \n";
     // seek back to beginning and use std::equal to compare contents
     f1.seekg(0, ifstream::beg);
     f2.seekg(0, ifstream::beg);
+    std::cout << f1.rdbuf() << std::endl;
+    std::cout << f2.rdbuf() << std::endl;
+    std::cout << "-------------------------------------- \n";
     return std::equal(istreambuf_iterator<char>(f1.rdbuf()),
                       istreambuf_iterator<char>(),
                       istreambuf_iterator<char>(f2.rdbuf()));
@@ -154,12 +153,12 @@ int main(int argc, const char *argv[])
         string output_file = "unittest/your_result/output" + to_string(i) + ".txt";
         string solution_file = "unittest/output_test/output" + to_string(i) + ".txt";
         sa_tc_01(input_file, output_file, i);
-        /*if (!compareFiles(output_file, solution_file))
+        if (!compareFiles(output_file, solution_file))
         {
             diff_files.push_back(i);
-        }*/
+        }
     }
-/*
+
     int percent = 100 - (diff_files.size() * 100) / (end - start + 1);
 
     if (!diff_files.empty())
@@ -171,6 +170,6 @@ int main(int argc, const char *argv[])
         }
     }
     cout << "\n-------------------------------------- \nResult: Pass " << percent << "%" << endl;
-*/
+
     return 0;
 }
