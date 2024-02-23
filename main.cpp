@@ -13,9 +13,9 @@ bool compareFiles(const string &p1, const string &p2)
         return false; // file problem
     }
     //if (f1.tellg() != f2.tellg())
-    //{
+    {
         //return false; // size mismatch
-    //}
+    }
     std::cout << std::endl;
     // seek back to beginning and use std::equal to compare contents
     f1.seekg(0, ifstream::beg);
@@ -145,7 +145,6 @@ int main(int argc, const char *argv[])
     int end = atoi(argv[2]);
     vector<int> diff_files;
 
-    cout << "Running: ";
     for (int i = start; i <= end; ++i)
     {
         cout << i << " ";

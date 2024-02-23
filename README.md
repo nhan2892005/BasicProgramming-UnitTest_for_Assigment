@@ -3,8 +3,7 @@
 - Đây là một bộ test dành cho Bài tập lớn 1 môn Kỹ thuật lập trình - Trường Đại học Bách Khoa
   do mình tự viết ra, nhằm để so sánh kết quả của mình và các bạn.
   
-- Bộ test sẽ test từ mission 1 đến mission 3, và trong 7 test đầu sẽ chứa các ví dụ trong đề.
-  Vì vậy, 7 test đầu là 7 test chuẩn nhất
+- Bộ test sẽ test từ mission 1 đến mission 5.
 
 - Lưu ý: Đây là bộ test tạo nên từ code của mình, vì vậy mọi kết quả đều không hoàn toàn chính xác.
   Tuy nhiên, nếu bạn mắc lỗi ở 1 test nào đó, hãy liên hệ cho tôi và cùng debug
