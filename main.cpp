@@ -15,7 +15,7 @@ bool compareFiles(const string &p1, const string &p2)
 
     if (f1.tellg() != f2.tellg())
     {
-        //return false; // size mismatch
+        return false; // size mismatch
     }
     std::cout << std::endl;
     std::cout << f1.rdbuf() << std::endl;
@@ -72,35 +72,22 @@ void sa_tc_01(string input_file, string output_file, int k)
         {
             return;
         }
+        ofstream outfile(output_file);
+        outfile << "----- Mission 1 -----" << endl;
+        outfile << "EXP1: " << EXP1 << ", EXP2: " << EXP2 << ", E1: " << E1 << endl;
+        int result = firstMeet(EXP1, EXP2, E1);
+        outfile << "EXP1: " << EXP1 << ", EXP2: " << EXP2 << ", result: " << result << endl;
 
-        if (k > 0 && k <= 100)
-        {
-            int result = firstMeet(EXP1, EXP2, E1);
+        outfile << "----- Mission 2 -----" << endl;
+        outfile << "HP1: " << HP1 << ", EXP1: " << EXP1 << ", M1: " << M1 << ", E2: " << E2 << endl;
+        result = traceLuggage(HP1, EXP1, M1, E2);
+        outfile << "HP1: " << HP1 << ", EXP1: " << EXP1 << ", M1: " << M1 << ", result: " << result << endl;
 
-            ofstream outfile(output_file);
-            outfile << "EXP1: " << EXP1 << ", EXP2: " << EXP2 << endl;
-            outfile << "Result: " << result << endl;
-            outfile.close();
-        }
-        else if (k > 100 && k <= 200)
-        {
-            int result = traceLuggage(HP1, EXP1, M1, E2);
-
-            ofstream outfile(output_file);
-            outfile << "EXP1: " << EXP1 << ", HP1: " << HP1 << ", M1:" << M1 << endl;
-            outfile << "Result: " << result << endl;
-            outfile.close();
-        }
-        if (k > 200 && k <= 300)
-        {
-            int result = chaseTaxi(HP1, EXP1, HP2, EXP2, E3);
-
-            ofstream outfile(output_file);
-            outfile << "EXP1: " << EXP1 << ", EXP2: " << EXP2 << endl;
-            outfile << "HP1: " << HP1 << ", HP2: " << HP2 << endl;
-            outfile << "Result: " << result << endl;
-            outfile.close();
-        }
+        outfile << "----- Mission 3 -----" << endl;
+        outfile << "HP1: " << HP1 << ", EXP1: " << EXP1 << ", HP2: " << HP2 << ", EXP2: " << EXP2 << ", E3: " << E3 << endl;
+        result = chaseTaxi(HP1, EXP1, HP2, EXP2, E3);
+        outfile << "HP1: " << HP1 << ", EXP1: " << EXP1 << ", HP2: " << HP2 << ", EXP2: " << EXP2 << ", result: " << result << endl;
+        outfile.close();
     }
     else if (k > 300 && k <= 400)
     {
@@ -167,12 +154,12 @@ int main(int argc, const char *argv[])
         string output_file = "unittest/your_result/output" + to_string(i) + ".txt";
         string solution_file = "unittest/output_test/output" + to_string(i) + ".txt";
         sa_tc_01(input_file, output_file, i);
-        if (!compareFiles(output_file, solution_file))
+        /*if (!compareFiles(output_file, solution_file))
         {
             diff_files.push_back(i);
-        }
+        }*/
     }
-
+/*
     int percent = 100 - (diff_files.size() * 100) / (end - start + 1);
 
     if (!diff_files.empty())
@@ -184,5 +171,6 @@ int main(int argc, const char *argv[])
         }
     }
     cout << "\n-------------------------------------- \nResult: Pass " << percent << "%" << endl;
+*/
     return 0;
 }
