@@ -3,7 +3,7 @@
 # List of commands to be executed
 commands=(
     # Run program
-    "g++ -o main main.cpp study_in_pink1.cpp -I . -std=c++11" 
+    "g++ -o main main.cpp study_in_pink1.cpp" 
     "./main 1 500"
     "rm -r ./main"
 )
